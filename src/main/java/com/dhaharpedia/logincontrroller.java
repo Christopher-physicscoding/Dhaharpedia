@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class logincontrroller {
     @FXML
@@ -34,6 +36,21 @@ public class logincontrroller {
         }
 
     }
+    @FXML
+    private Button back;
+    @FXML
+    private void Back() throws IOException{
+         // Get the current scene
+         Scene currentScene = back.getScene();
+        
+         // Modify the size of the window
+         Stage currentStage = (Stage) currentScene.getWindow();
+         currentStage.setWidth(900); // Set the width
+         currentStage.setHeight(800); // Set the height
+         
+         // Switch to the "restocreate" page
+         App.setRoot("home");
+    } 
 
 }
 

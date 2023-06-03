@@ -10,18 +10,20 @@ public class Restaurant {
     private String noHp;
     private float rating;
     private String kategory;
-    private String Gambar;
+    private byte[] Gambar;
     private ArrayList<Makanan> menu;
     private ArrayList<Review> review;
+    private int jumlahorang;
 
     // constructor
-    public Restaurant(String nama, String alamat, String noHp, float rating, String kategory, String Gambar) {
+    public Restaurant(String nama, String alamat, String noHp, float rating, String kategory, byte[] Gambar, int jumlahorang) {
         this.nama = nama;
         this.alamat = alamat;
         this.noHp = noHp;
         this.rating = rating;
         this.kategory = kategory;
         this.Gambar = Gambar;
+        this.jumlahorang = jumlahorang;
         this.menu = new ArrayList<Makanan>();
         this.review = new ArrayList<Review>();
     }
@@ -33,6 +35,13 @@ public class Restaurant {
     }
     public void setNama(String nama) {
         this.nama = nama;
+    }
+    // setter and getter jumlahorang
+    public int getJumlahorang() {
+        return jumlahorang;
+    }
+    public void setJumlahorang(int jumlahorang) {
+        this.jumlahorang = jumlahorang;
     }
     // setter and getter alamat
     public String getAlamat() {
@@ -63,10 +72,10 @@ public class Restaurant {
         this.kategory = kategory;
     }
     // setter and getter Gambar
-    public String getGambar() {
+    public byte[] getGambar() {
         return Gambar;
     }
-    public void setGambar(String Gambar) {
+    public void setGambar(byte[] Gambar) {
         this.Gambar = Gambar;
     }
     // setter and getter menu
@@ -159,8 +168,4 @@ public class Restaurant {
         }
         return result;
     }
-
-
-    
-    
 }

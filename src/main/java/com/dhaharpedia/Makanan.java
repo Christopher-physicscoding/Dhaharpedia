@@ -6,10 +6,10 @@ public class Makanan {
     private String description;
     private double price;
     private String category;
-    private String Gambar;
+    private byte[] Gambar;
     
     //constructor
-    public Makanan(String name, String description, Double price, String category, String Gambar) {
+    public Makanan(String name, String description, Double price, String category, byte[] Gambar) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -51,10 +51,10 @@ public class Makanan {
     }
 
     //getter  and setter Gambar
-    public String getGambar() {
+    public byte[] getGambar() {
         return Gambar;
     }
-    public void setGambar(String Gambar) {
+    public void setGambar(byte[] Gambar) {
         this.Gambar = Gambar;
     }
 }

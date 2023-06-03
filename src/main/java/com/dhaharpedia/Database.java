@@ -13,7 +13,24 @@ public class Database {
         listUser.add(new User("08123456789", "admin", "admin", "ayam", "admin"));
         listUser.add(new User("08123456789", "user", "user", "ayam", "user"));
         // add some restaurant
-        listRestaurant.add(new Restaurant("Ayam Bakar Pak Boss", "Jl. Raya Bogor, No. 1, Jakarta", "08123456789", 4.5f, "Ayam Bakar", "ayam.jpg"));
+        listRestaurant.add(new Restaurant("Ayam Bakar Pak Boss", "Jl. Raya Bogor, No. 1, Jakarta", "08123456789", 4.5f, "Chicken", null, 200));
+        Restaurant restaurant2 = new Restaurant("Pizza Delight", "Jl. Sudirman, No. 10, Jakarta", "08234567890", 4.2f, "Italian", null, 150);
+        listRestaurant.add(restaurant2);
+        Restaurant restaurant3 = new Restaurant("Sushi Tei", "Jl. Thamrin, No. 20, Jakarta", "08345678901", 4.7f, "Japanese", null, 100);
+        listRestaurant.add(restaurant3);
+        Restaurant restaurant4 = new Restaurant("Bakmi GM", "Jl. Sudirman, No. 30, Jakarta", "08456789012", 4.3f, "Chinese", null, 50);
+        listRestaurant.add(restaurant4);
+        Restaurant restaurant5 = new Restaurant("Bakso Malang", "Jl. Sudirman, No. 40, Jakarta", "08567890123", 4.1f, "Indonesian", null, 100);
+        listRestaurant.add(restaurant5);
+        Restaurant restaurant6 = new Restaurant("Burger King", "Jl. Sudirman, No. 50, Jakarta", "08678901234", 4.4f, "American", null, 200);
+        listRestaurant.add(restaurant6);
+        Restaurant restaurant7 = new Restaurant("KFC", "Jl. Sudirman, No. 60, Jakarta", "08789012345", 4.6f, "Chicken", null, 200);
+        listRestaurant.add(restaurant7);
+        Restaurant restaurant8 = new Restaurant("McDonald", "Jl. Sudirman, No. 70, Jakarta", "08890123456", 4.8f, "American", null, 200);
+        listRestaurant.add(restaurant8);
+        
+
+
         // add different restaurant
         
 
@@ -87,4 +104,5 @@ public class Database {
             }
         }
     }
+    
 }
