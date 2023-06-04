@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dhaharpedia.logincontrroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
    <left>
       <AnchorPane prefHeight="395.0" prefWidth="253.0" style="-fx-background-color: cyan;" BorderPane.alignment="CENTER">
          <children>
@@ -43,9 +43,9 @@
             </Label>
             <TextField fx:id="usernameField" alignment="CENTER" layoutX="64.0" layoutY="150.0" prefHeight="39.0" prefWidth="232.0" promptText="Username" />
             <PasswordField  fx:id="passwordField"  alignment="CENTER" layoutX="64.0" layoutY="236.0" prefHeight="41.0" prefWidth="233.0" promptText="Password" />
-            <Button onAction="#check" layoutX="127.0" layoutY="309.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="107.0" style="-fx-background-color: lime;" text="Sign In" />
+            <Button fx:id="check" layoutX="127.0" layoutY="309.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="107.0" style="-fx-background-color: lime;" text="Sign In" />
             <Label alignment="CENTER" layoutX="127.0" layoutY="98.0" prefHeight="16.0" prefWidth="91.0" textFill="#e80000" />
-            <Button onAction="#Back" fx:id="back" layoutX="283.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: gold;" text="Back" />
+            <Button fx:id="back" layoutX="283.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: gold;" text="Back" />
          </children>
       </AnchorPane>
    </right>
