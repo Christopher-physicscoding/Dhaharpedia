@@ -7,11 +7,26 @@ import java.io.File;
 import java.nio.file.Files;
 import java.io.IOException;
 import javafx.scene.control.ListView;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
+import java.net.URL;    
+import java.util.ResourceBundle;
 
-public class editmenu {
+public class editmenu implements Initializable {
     @FXML
     private ListView<String> listView;
     private byte[] imageBytes;
+
+    @FXML
+    private TextField nama;
+    @FXML
+    private TextField kategori;
+    @FXML
+    private TextField harga;
+    @FXML
+    private TextArea deskripsi;
     @FXML
     public void Upload(){
         FileChooser fileChooser = new FileChooser();
@@ -36,32 +51,63 @@ public class editmenu {
             }
         } 
     }
+    public void initialize(URL location, ResourceBundle resources){
+        detailrestorancontroller detailrestorancontroller = new detailrestorancontroller();
+        String foodstate = detailrestorancontroller.foodstate;
+        Makanan makanan = detailrestorancontroller.makanan;
+        System.out.println(foodstate);
+        System.out.println(makanan.getName());
+        nama.setText(makanan.getName());
+        kategori.setText(makanan.getCategory());
+        harga.setText(String.valueOf(makanan.getPrice()));
+        deskripsi.setText(makanan.getDescription());
+    
+    }
 
+   
     @FXML
-    private TextField nama;
-    @FXML
-    private TextField kategori;
-    @FXML
-    private TextField harga;
-    @FXML
-    private TextArea deskripsi;
-    @FXML
-    public void Submit(){
+    public void Submit() throws IOException {
         // get data from form
         String nama1 = nama.getText();
         String kategori1 = kategori.getText();
         String harga1 = harga.getText();
         String deskripsi1 = deskripsi.getText();
+        String foodstate = detailrestorancontroller.foodstate;
 
         Makanan makanan = new Makanan(nama1, deskripsi1, Double.parseDouble(harga1), kategori1, imageBytes);
-        // print all
-        System.out.println(nama1);
-        System.out.println(kategori1);
-        System.out.println(harga1);
-        System.out.println(deskripsi1);
-        System.out.println(imageBytes);
+        homecontroller homecontroller = new homecontroller();
+        homecontroller.data.getRestaurantByName(homecontroller.state).editMenu(makanan, foodstate);
+        
+        
+        Scene currentScene = back.getScene();
+        //Modify the size of the window
+        Stage currentStage = (Stage) currentScene.getWindow();
+        currentStage.setWidth(900); // Set the width
+        currentStage.setHeight(800); // Set the height
+        // Switch to the "restocreate" page
+        App.setRoot("detailrestoran");
 
-       
+        
     }
+
+    @FXML
+    private Button back;
+
+    @FXML
+    public void Back() throws IOException{
+         // Get the current scene
+         Scene currentScene = back.getScene();
+        
+         // Modify the size of the window
+         Stage currentStage = (Stage) currentScene.getWindow();
+         currentStage.setWidth(900); // Set the width
+         currentStage.setHeight(800); // Set the height
+         
+         // Switch to the "restocreate" page
+         App.setRoot("detailrestoran");
+     
+    }   
+    
+    
     
 }

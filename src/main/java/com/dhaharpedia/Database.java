@@ -15,6 +15,8 @@ public class Database {
         // add some restaurant
         listRestaurant.add(new Restaurant("Ayam Bakar Pak Boss", "Jl. Raya Bogor, No. 1, Jakarta", "08123456789", 4.5f, "Chicken", null, 200));
         Restaurant restaurant2 = new Restaurant("Pizza Delight", "Jl. Sudirman, No. 10, Jakarta", "08234567890", 4.2f, "Italian", null, 150);
+         // add makan on different Ayam Bakar Pak Boss
+        restaurant2.addMenu(new Makanan("Ayam Bakar", "Ayam Bakar dengan bumbu khas", 20000.0, "Chicken", null));
         listRestaurant.add(restaurant2);
         Restaurant restaurant3 = new Restaurant("Sushi Tei", "Jl. Thamrin, No. 20, Jakarta", "08345678901", 4.7f, "Japanese", null, 100);
         listRestaurant.add(restaurant3);
@@ -28,10 +30,54 @@ public class Database {
         listRestaurant.add(restaurant7);
         Restaurant restaurant8 = new Restaurant("McDonald", "Jl. Sudirman, No. 70, Jakarta", "08890123456", 4.8f, "American", null, 200);
         listRestaurant.add(restaurant8);
+        //this.removeRestaurantByName("McDonald");
+
+        // add restaurat 9
+        Restaurant restaurant9 = new Restaurant("Bakso", "Jl. Sudirman, No. 40, Jakarta", "08567890123", 4.1f, "Indonesian", null, 100);
+        restaurant9.addMenu(new Makanan("Bakso", "Bakso Malang", 20000.0, "Indonesian", null));
+        restaurant9.addMenu(new Makanan("Mie Ayam", "Mie Ayam Malang", 20000.0, "Indonesian", null));
+        restaurant9.addMenu(new Makanan("Nasi Goreng", "Nasi Goreng Malang", 20000.0, "Indonesian", null));
+        restaurant9.addMenu(new Makanan("Soto Ayam", "Soto Ayam Malang", 20000.0, "Indonesian", null));
+        restaurant9.addMenu(new Makanan("Soto Ayam", "Soto Ayam Malang", 20000.0, "Indonesian", null));
+        restaurant9.addMenu(new Makanan("Soto Ayam", "Soto Ayam Malang", 20000.0, "Indonesian", null));
+        restaurant9.addMenu(new Makanan("Soto Ayam", "Soto Ayam Malang", 20000.0, "Indonesian", null));
+        restaurant9.addMenu(new Makanan("Soto Ayam", "Soto Ayam Malang", 20000.0, "Indonesian", null));
+        restaurant9.addMenu(new Makanan("Soto Ayam", "Soto Ayam Malang", 20000.0, "Indonesian", null));
+
+
+        // add restaurat 10
+        Restaurant restaurant10 = new Restaurant("Malang", "Jl. Sudirman, No. 40, Jakarta", "08567890123", 4.1f, "Indonesian", null, 100);
+        restaurant10.addMenu(new Makanan("Bakso", "Bakso Malang", 20000.0, "Indonesian", null));
+        restaurant10.addMenu(new Makanan("Mie Ayam", "Mie Ayam Malang", 20000.0, "Indonesian", null));
+        restaurant10.addMenu(new Makanan("Nasi Goreng", "Nasi Goreng Malang", 20000.0, "Indonesian", null));
+        restaurant10.addMenu(new Makanan("Soto Ayam", "Soto Ayam Malang", 20000.0, "Indonesian", null));
+        restaurant10.addMenu(new Makanan("Soto Ayam", "Soto Ayam Malang", 20000.0, "Indonesian", null));
+        listRestaurant.add(restaurant9);
+        listRestaurant.add(restaurant10);
         
+        // add restaurat 11
+        Restaurant restaurant11 = new Restaurant("Bakso Malang", "Jl. Sudirman, No. 40, Jakarta", "08567890123", 4.1f, "Indonesian", null, 100);
+        listRestaurant.add(restaurant11);
+
+        //add restaurat 12
+        Restaurant restaurant12 = new Restaurant("Baksong", "Jl. Sudirman, No. 40, Jakarta", "08567890123", 4.1f, "Indonesian", null, 100);
+        listRestaurant.add(restaurant12);
+
+        //add restaurat 13
+        Restaurant restaurant13 = new Restaurant("Bakg", "Jl. Sudirman, No. 40, Jakarta", "08567890123", 4.1f, "Indonesian", null, 100);
+        listRestaurant.add(restaurant13);
+
+        //add restaurat 14
+        Restaurant restaurant14 = new Restaurant("Balang", "Jl. Sudirman, No. 40, Jakarta", "08567890123", 4.1f, "Indonesian", null, 100);
+        listRestaurant.add(restaurant14);
+
+        //add restaurat 15
+        Restaurant restaurant15 = new Restaurant("Baka0", "Jl. Sudirman, No. 40, Jakarta", "08567890123", 4.1f, "Indonesian", null, 100);
+        listRestaurant.add(restaurant15);
 
 
-        // add different restaurant
+       
+
         
 
        
@@ -94,6 +140,15 @@ public class Database {
         }
         return null;
     }
+    //method to edit restaurant
+    public void editRestaurant(Restaurant restaurant, String name) {
+        for (Restaurant restaurant1 : listRestaurant) {
+            if (restaurant1.getNama().equals(name)) {
+                listRestaurant.set(listRestaurant.indexOf(restaurant1), restaurant);
+                break;
+            }
+        }
+    }
 
     
     // method to remove restaurant by name
@@ -101,8 +156,9 @@ public class Database {
         for (Restaurant restaurant : listRestaurant) {
             if (restaurant.getNama().equals(name)) {
                 listRestaurant.remove(restaurant);
+                break;
             }
         }
-    }
+    }    
     
 }

@@ -11,8 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-public class Restocreatecontroller {
+import javafx.fxml.Initializable;
+import java.net.URL;
+import java.util.ResourceBundle;
+public class Restoeditcontroller implements Initializable {
     @FXML
     private ListView<String> listView;
     @FXML
@@ -27,6 +29,20 @@ public class Restocreatecontroller {
     private TextField rating;
     @FXML
     private TextField jumlahorang;
+    @Override
+    public void initialize(URL location, ResourceBundle resources){
+        homecontroller homecontroller = new homecontroller();
+        Restaurant restoran = homecontroller.data.getRestaurantByName(homecontroller.state);
+
+        //setvalue of text field and area
+        nama.setText(restoran.getNama());
+        kategori.setText(restoran.getKategory());
+        kontak.setText(restoran.getNoHp());
+        alamat.setText(restoran.getAlamat());
+        rating.setText(Float.toString(restoran.getRating()));
+        jumlahorang.setText(Integer.toString(restoran.getJumlahorang()));
+
+    }
 
     @FXML
     public void Submit() throws IOException{
@@ -42,17 +58,18 @@ public class Restocreatecontroller {
         
         // add to database
         homecontroller homecontoller = new homecontroller();
-        homecontoller.data.addRestaurant(restoran);
+        homecontoller.data.editRestaurant(restoran, homecontoller.state);
 
+        
         Scene currentScene = back.getScene();
         
         // Modify the size of the window
         Stage currentStage = (Stage) currentScene.getWindow();
-        currentStage.setWidth(1200); // Set the width
-        currentStage.setHeight(1000); // Set the height
-        
+        currentStage.setWidth(900); // Set the width
+        currentStage.setHeight(800); // Set the height
+        homecontoller.state = nama1;
         // Switch to the "restocreate" page
-        App.setRoot("home");
+        App.setRoot("detailrestoran");
         
 
        
@@ -93,13 +110,14 @@ public class Restocreatecontroller {
         
          // Modify the size of the window
          Stage currentStage = (Stage) currentScene.getWindow();
-         currentStage.setWidth(1200); // Set the width
-         currentStage.setHeight(1000); // Set the height
+         currentStage.setWidth(900); // Set the width
+         currentStage.setHeight(800); // Set the height
          
          // Switch to the "restocreate" page
-         App.setRoot("home");
+         App.setRoot("detailrestoran");
+
+        
      
     }   
-
+    
 }
-

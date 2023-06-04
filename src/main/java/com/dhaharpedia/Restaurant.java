@@ -100,14 +100,8 @@ public class Restaurant {
     public void addReview(Review review) {
         this.review.add(review);
     }
-    // remove menu
-    public void removeMenu(Makanan makanan) {
-        this.menu.remove(makanan);
-    }
-    // remove review
-    public void removeReview(Review review) {
-        this.review.remove(review);
-    }
+   
+   
     // get menu by name
     public Makanan getMenuByName(String name) {
         for (Makanan makanan : this.menu) {
@@ -117,55 +111,35 @@ public class Restaurant {
         }
         return null;
     }
-    // get review by name
-    public Review getReviewByName(String name) {
-        for (Review review : this.review) {
-            if (review.getNama().equals(name)) {
-                return review;
-            }
-        }
-        return null;
-    }
-    // get menu by category
-    public ArrayList<Makanan> getMenuByCategory(String category) {
-        ArrayList<Makanan> result = new ArrayList<Makanan>();
+    
+    // remove menu
+    public void removeMenu(String name) {
         for (Makanan makanan : this.menu) {
-            if (makanan.getCategory().equals(category)) {
-                result.add(makanan);
-            }
-        }
-        return result;
-    }
-    // get review by rating
-    public ArrayList<Review> getReviewByRating(int rating) {
-        ArrayList<Review> result = new ArrayList<Review>();
-        for (Review review : this.review) {
-            if (review.getRating() == rating) {
-                result.add(review);
-            }
-        }
-        return result;
-    }
-    // sort menu by price   
-    public void sortMenuByPrice() {
-        for (int i = 0; i < this.menu.size(); i++) {
-            for (int j = 0; j < this.menu.size() - 1; j++) {
-                if (this.menu.get(j).getPrice() > this.menu.get(j + 1).getPrice()) {
-                    Makanan temp = this.menu.get(j);
-                    this.menu.set(j, this.menu.get(j + 1));
-                    this.menu.set(j + 1, temp);
-                }
+            if (makanan.getName().equals(name)) {
+                this.menu.remove(makanan);
+                break;
             }
         }
     }
-    // search menu by name
-    public ArrayList<Makanan> searchMenuByName(String name) {
-        ArrayList<Makanan> result = new ArrayList<Makanan>();
+    
+   
+    public void editMenu(Makanan makanan, String name) {
+        System.out.println("hello dunia");
+        //edit menu
+        for (Makanan makanan1 : this.menu) {
+            if (makanan1.getName().equals(name)) {
+                this.menu.set(this.menu.indexOf(makanan1), makanan);
+                break;
+            }
+        }
+    }
+    // show all menu
+    public void showAllMenu() {
         for (Makanan makanan : this.menu) {
-            if (makanan.getName().contains(name)) {
-                result.add(makanan);
-            }
+            System.out.println("Nama: " + makanan.getName());
+            System.out.println("Harga: " + makanan.getPrice());
+            System.out.println("Deskripsi: " + makanan.getDescription());
+            System.out.println("Kategori: " + makanan.getCategory());
         }
-        return result;
     }
 }

@@ -8,10 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
@@ -21,7 +17,7 @@ public class App extends Application {
         //scene = new Scene(loadFXML("login"), 640, 480);
         //scene = new Scene(loadFXML("restocreate"), 1200, 800);
         //scene = new Scene(loadFXML("rating"), 600, 400);
-        scene = new Scene(loadFXML("home"), 900, 800);
+        scene = new Scene(loadFXML("home"), 1200, 1000);
         stage.setScene(scene);
         stage.show();
     }

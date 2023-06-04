@@ -1,5 +1,4 @@
 package com.dhaharpedia;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -7,58 +6,15 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.nio.file.Files;
 import java.io.IOException;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 
-public class Restocreatecontroller {
+public class tambahmenu {
     @FXML
     private ListView<String> listView;
-    @FXML
-    private TextField nama;
-    @FXML
-    private TextField kategori;
-    @FXML
-    private TextField kontak;
-    @FXML
-    private TextArea alamat;
-    @FXML
-    private TextField rating;
-    @FXML
-    private TextField jumlahorang;
-
-    @FXML
-    public void Submit() throws IOException{
-        // get data from form
-        String nama1 = nama.getText();
-        String kategori1 = kategori.getText();
-        String kontak1 = kontak.getText();
-        String alamat1 = alamat.getText();
-        String rating1 = rating.getText();
-        String jumlahorang1 = jumlahorang.getText();
-        
-        Restaurant restoran = new Restaurant(nama1, alamat1, kontak1, Float.parseFloat(rating1), kategori1, imageBytes, Integer.parseInt(jumlahorang1));
-        
-        // add to database
-        homecontroller homecontoller = new homecontroller();
-        homecontoller.data.addRestaurant(restoran);
-
-        Scene currentScene = back.getScene();
-        
-        // Modify the size of the window
-        Stage currentStage = (Stage) currentScene.getWindow();
-        currentStage.setWidth(1200); // Set the width
-        currentStage.setHeight(1000); // Set the height
-        
-        // Switch to the "restocreate" page
-        App.setRoot("home");
-        
-
-       
-    }
     private byte[] imageBytes;
-
     @FXML
     public void Upload(){
         FileChooser fileChooser = new FileChooser();
@@ -83,6 +39,40 @@ public class Restocreatecontroller {
             }
         } 
     }
+
+    @FXML
+    private TextField nama;
+    @FXML
+    private TextField kategori;
+    @FXML
+    private TextField harga;
+    @FXML
+    private TextArea deskripsi;
+    @FXML
+    public void Submit() throws IOException {
+        // get data from form
+        String nama1 = nama.getText();
+        String kategori1 = kategori.getText();
+        String harga1 = harga.getText();
+        String deskripsi1 = deskripsi.getText();
+
+        Makanan makanan = new Makanan(nama1, deskripsi1, Double.parseDouble(harga1), kategori1, imageBytes);
+        homecontroller homecontroller = new homecontroller();
+        Restaurant restoran = homecontroller.data.getRestaurantByName(homecontroller.state);
+        restoran.addMenu(makanan);
+        Scene currentScene = back.getScene();
+        
+        // Modify the size of the window
+        Stage currentStage = (Stage) currentScene.getWindow();
+        currentStage.setWidth(900); // Set the width
+        currentStage.setHeight(800); // Set the height
+        
+        // Switch to the "restocreate" page
+        App.setRoot("detailrestoran");
+
+      
+    }
+
     @FXML
     private Button back;
 
@@ -93,13 +83,13 @@ public class Restocreatecontroller {
         
          // Modify the size of the window
          Stage currentStage = (Stage) currentScene.getWindow();
-         currentStage.setWidth(1200); // Set the width
-         currentStage.setHeight(1000); // Set the height
+         currentStage.setWidth(900); // Set the width
+         currentStage.setHeight(800); // Set the height
          
          // Switch to the "restocreate" page
-         App.setRoot("home");
+         App.setRoot("detailrestoran");
      
     }   
-
+    
+    
 }
-
